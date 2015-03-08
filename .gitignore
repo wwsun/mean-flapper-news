@@ -1,12 +1,21 @@
-*.class
+# IDE
+.idea/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Project unrelevant
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-# Package Files #
-*.jar
-*.war
-*.ear
+pids
+logs
+results
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+npm-debug.log
+node_modules
+
+public/libs
