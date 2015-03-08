@@ -6,18 +6,18 @@ angular.module('appRoutes', []).config(function($stateProvider, $urlRouterProvid
         .state('home', {
             url: '/',
             templateUrl: 'views/home.html',
-            controller: 'MainController'
+            controller: 'MainController as mainCtrl'
         })
 
         .state('nerds', {
             url: '/nerds',
             templateUrl: 'views/nerd.html',
-            controller: 'NerdController'
+            controller: 'NerdController as nerdCtrl'
         })
 
         .state('geeks', {
             url: '/geeks',
             templateUrl: 'views/geek.html',
-            controller: 'GeekController'
+            controller: 'GeekController as geekCtrl'
         })
 });
