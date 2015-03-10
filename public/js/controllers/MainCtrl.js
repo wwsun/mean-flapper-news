@@ -1,16 +1,11 @@
-angular.module('MainCtrl', []).controller('MainController', function() {
-
+angular.module('MainCtrl', []).controller('MainController', function(posts) {
     var vm = this;
+
+    // inject services by hands
+    vm.$inject = ['posts'];
+
 	vm.tagline = 'Flapper News Home';
-
-    vm.posts = [
-        {title: 'post 1', upvotes: 5},
-        {title: 'post 2', upvotes: 2},
-        {title: 'post 3', upvotes: 15},
-        {title: 'post 4', upvotes: 9},
-        {title: 'post 5', upvotes: 4}
-    ];
-
+    vm.posts = posts.posts;
     vm.new = {};
 
     vm.addPost = function() {
