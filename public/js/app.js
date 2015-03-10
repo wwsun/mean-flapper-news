@@ -1,8 +1,15 @@
 angular.module('sampleApp', [
     'ui.router',
     'appRoutes',
-    'MainCtrl', 'HomeService',
+
+    'MainCtrl',
+    'HomeService',
+
     'PostsCtrl',
-    'NerdCtrl', 'NerdService',
-    'GeekCtrl', 'GeekService'
+
+    'NerdCtrl',
+    'NerdService',
+
+    'GeekCtrl',
+    'GeekService'
 ]);
