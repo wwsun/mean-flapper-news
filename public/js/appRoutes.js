@@ -9,6 +9,12 @@ angular.module('appRoutes', []).config(function($stateProvider, $urlRouterProvid
             controller: 'MainController as mainCtrl'
         })
 
+        .state('posts', {
+            url: '/posts/:id',
+            templateUrl: 'views/posts.html',
+            controller: 'PostCtrl as postCtrl'
+        })
+
         .state('nerds', {
             url: '/nerds',
             templateUrl: 'views/nerd.html',
