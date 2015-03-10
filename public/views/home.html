@@ -3,12 +3,15 @@
 
     <div ng-repeat="post in mainCtrl.posts | orderBy: '-upvotes'">
         <span ng-click="mainCtrl.incrementUpvotes(post)">^</span>
-        {{ post.title }} - upvotes: {{ post.upvotes }}
+        <a ng-show="post.link" href="{{ post.link }}">{{ post.title }}</a>
+        <span ng-hide="post.link">{{ post.title }}</span>
+        - upvotes: {{ post.upvotes }}
     </div>
 
 
     <form ng-submit="mainCtrl.addPost()" class="form-inline">
-        <input type="text" class="form-control" ng-model="mainCtrl.new.title">
+        <input type="text" class="form-control" ng-model="mainCtrl.new.title" placeholder="Title" required>
+        <input type="text" class="form-control" ng-model="mainCtrl.new.link" placeholder="Link">
         <button type="submit" class="btn btn-primary">Post</button>
     </form>
 </div>
