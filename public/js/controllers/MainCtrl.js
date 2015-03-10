@@ -10,4 +10,14 @@ angular.module('MainCtrl', []).controller('MainController', function() {
         {title: 'post 4', upvotes: 9},
         {title: 'post 5', upvotes: 4}
     ];
+
+    vm.new = {};
+
+    vm.addPost = function() {
+        if(!vm.new.title || vm.new.title === '') { return; }
+
+        vm.new.upvotes = 0;
+        vm.posts.push(vm.new);
+        vm.new = {};
+    }
 });

@@ -6,4 +6,10 @@
     <div ng-repeat="post in mainCtrl.posts | orderBy: '-upvotes'">
         {{ post.title }} - upvotes: {{ post.upvotes }}
     </div>
+
+
+    <form ng-submit="mainCtrl.addPost()" class="form-inline">
+        <input type="text" class="form-control" ng-model="mainCtrl.new.title">
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
 </div>
