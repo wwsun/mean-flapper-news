@@ -1,7 +1,7 @@
 angular.module('MainCtrl', []).controller('MainController', function() {
 
     var vm = this;
-	vm.tagline = 'To the moon and back!';
+	vm.tagline = 'Flapper News Home';
 
     vm.posts = [
         {title: 'post 1', upvotes: 5},
@@ -19,5 +19,9 @@ angular.module('MainCtrl', []).controller('MainController', function() {
         vm.new.upvotes = 0;
         vm.posts.push(vm.new);
         vm.new = {};
+    };
+
+    vm.incrementUpvotes = function(post) {
+        post.upvotes += 1;
     }
 });

@@ -1,9 +1,8 @@
 <div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
-
 	<p>{{ mainCtrl.tagline }}</p>
 
     <div ng-repeat="post in mainCtrl.posts | orderBy: '-upvotes'">
+        <span ng-click="mainCtrl.incrementUpvotes(post)">^</span>
         {{ post.title }} - upvotes: {{ post.upvotes }}
     </div>
 
