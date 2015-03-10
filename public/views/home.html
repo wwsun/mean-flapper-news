@@ -1,14 +1,20 @@
-<div class="jumbotron text-center">
-	<p>{{ mainCtrl.tagline }}</p>
+<div class="page-header">
+    <h1>{{ mainCtrl.tagline }}
+        <small> an MEAN app</small>
+    </h1>
+</div>
 
+<div class="jumbotron">
     <div ng-repeat="post in mainCtrl.posts | orderBy: '-upvotes'">
-        <span ng-click="mainCtrl.incrementUpvotes(post)">^</span>
+        <span class="glyphicon glyphicon-thumbs-up"
+                ng-click="mainCtrl.incrementUpvotes(post)"></span>
         <a ng-show="post.link" href="{{ post.link }}">{{ post.title }}</a>
         <span ng-hide="post.link">{{ post.title }}</span>
         - upvotes: {{ post.upvotes }}
     </div>
+</div>
 
-
+<div class="row">
     <form ng-submit="mainCtrl.addPost()" class="form-inline">
         <input type="text" class="form-control" ng-model="mainCtrl.new.title" placeholder="Title" required>
         <input type="text" class="form-control" ng-model="mainCtrl.new.link" placeholder="Link">
