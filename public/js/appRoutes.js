@@ -12,7 +12,7 @@ angular.module('appRoutes', []).config(function($stateProvider, $urlRouterProvid
         .state('posts', {
             url: '/posts/:id',
             templateUrl: 'views/posts.html',
-            controller: 'PostCtrl as postCtrl'
+            controller: 'PostsController as postsCtrl'
         })
 
         .state('nerds', {

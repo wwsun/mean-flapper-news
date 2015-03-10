@@ -12,6 +12,11 @@ angular.module('MainCtrl', []).controller('MainController', function(posts) {
         if(!vm.new.title || vm.new.title === '') { return; }
 
         vm.new.upvotes = 0;
+        vm.new.comments = [
+            {author: 'Joe', body: 'Cool post!', upvotes: 0},
+            {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
+        ];
+
         vm.posts.push(vm.new);
         vm.new = {};
     };
