@@ -6,4 +6,12 @@ angular.module('PostsCtrl', []).controller('PostsController', function($statePar
 
     vm.post = posts.posts[$stateParams.id];
 
+    vm.newComment = {};
+
+    vm.addComment = function() {
+        if(vm.newComment.body === '') { return; }
+        vm.post.comments.push(vm.newComment);
+        vm.newComment = {};
+    }
+
 });
