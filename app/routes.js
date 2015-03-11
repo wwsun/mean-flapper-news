@@ -26,6 +26,17 @@ module.exports = function (app) {
         })
     });
 
+    router.param('comment', function (req, res, next, id) {
+        var query = Comment.findById(id);
+
+        query.exec(function (err, comment) {
+            if (err) return next(err);
+            if(!comment) return next(new Error('can\'t find comment'));
+            req.comment = comment;
+            return next();
+        })
+    });
+
     router.get('/', function (req, res) {
         res.sendfile('./public/index.html');
     });
@@ -72,6 +83,13 @@ module.exports = function (app) {
                 if (err) return next(err);
                 res.json(comment);
             })
+        })
+    });
+
+    router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
+        req.comment.upvote(function(err, comment) {
+            if (err) return next(err);
+            res.json(comment);
         })
     });
 
