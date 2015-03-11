@@ -34,7 +34,7 @@ angular.module('HomeService', []).factory('posts', ['$http', function($http) {
     };
 
     obj.upvoteComment = function(post, comment) {
-        return $http.post('/posts/' + post._id + '/comments/' + comment._id + '/upvote')
+        return $http.put('/posts/' + post._id + '/comments/' + comment._id + '/upvote')
             .success(function(data) {
                 comment.upvotes += 1;
             })
