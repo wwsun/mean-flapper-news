@@ -11,4 +11,9 @@ var PostSchema = mongoose.Schema({
     comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });
 
+PostSchema.methods.upvote = function(cb) {
+    this.upvotes += 1;
+    this.save(cb);
+};
+
 module.exports = mongoose.model('Post', PostSchema);
