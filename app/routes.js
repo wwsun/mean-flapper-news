@@ -1,3 +1,4 @@
+var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
@@ -72,5 +73,7 @@ module.exports = function(app) {
                 res.json(comment);
             })
         })
-    })
+    });
+
+    app.use('/', router);
 };

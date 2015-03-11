@@ -16,6 +16,6 @@ angular.module('MainCtrl', []).controller('MainController', function(posts) {
     };
 
     vm.incrementUpvotes = function(post) {
-        post.upvotes += 1;
+        posts.upvote(post);
     }
 });
