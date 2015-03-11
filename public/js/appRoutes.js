@@ -15,9 +15,14 @@ angular.module('appRoutes', []).config(function($stateProvider, $urlRouterProvid
         })
 
         .state('posts', {
-            url: '/posts/:id',
+            url: '/posts/{id}',
             templateUrl: 'views/posts.html',
-            controller: 'PostsController as postsCtrl'
+            controller: 'PostsController as postsCtrl',
+            resolve: {
+                post: ['$stateParams', 'posts', function($stateParams, posts) {
+                    return posts.get($stateParams.id);
+                }]
+            }
         })
 
         .state('nerds', {

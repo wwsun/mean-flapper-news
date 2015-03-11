@@ -11,7 +11,7 @@
 
 <div class="row">
     <div ng-repeat="comment in postsCtrl.post.comments | orderBy:'-upvotes'">
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="postsCtrl.incrementUpvotes(comment)"></span>
         {{comment.upvotes}} - by {{comment.author}}
         <span>{{comment.body}}</span>
     </div>
