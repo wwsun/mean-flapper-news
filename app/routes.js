@@ -31,7 +31,7 @@ module.exports = function (app) {
 
         query.exec(function (err, comment) {
             if (err) return next(err);
-            if(!comment) return next(new Error('can\'t find comment'));
+            if (!comment) return next(new Error('can\'t find comment'));
             req.comment = comment;
             return next();
         })
@@ -41,20 +41,22 @@ module.exports = function (app) {
         res.sendfile('./public/index.html');
     });
 
-    router.get('/posts', function (req, res, next) {
-        Post.find(function (err, posts) {
-            if (err) return next(err);
-            res.json(posts);
-        })
-    });
+    router.route('/posts')
 
-    router.post('/posts', function (req, res, next) {
-        var post = new Post(req.body);
-        post.save(function (err, post) {
-            if (err) return next(err);
-            res.json(next);
+        .get(function (req, res, next) {
+            Post.find(function (err, posts) {
+                if (err) return next(err);
+                res.json(posts);
+            })
         })
-    });
+
+        .post(function (req, res, next) {
+            var post = new Post(req.body);
+            post.save(function (err, post) {
+                if (err) return next(err);
+                res.json(next);
+            })
+        });
 
     router.get('/posts/:post', function (req, res, next) {
         req.post.populate('comments', function (err, post) {
@@ -86,8 +88,8 @@ module.exports = function (app) {
         })
     });
 
-    router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
-        req.comment.upvote(function(err, comment) {
+    router.put('/posts/:post/comments/:comment/upvote', function (req, res, next) {
+        req.comment.upvote(function (err, comment) {
             if (err) return next(err);
             res.json(comment);
         })
